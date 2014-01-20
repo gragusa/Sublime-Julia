@@ -310,8 +310,8 @@ class ReplView(object):
         """Writes output from Repl into this view."""
         # remove color codes
         if self._filter_color_codes:
-            unistr = re.sub(r'\033\[\d*(;\d*)?\w', '', unistr)
-            unistr = re.sub(r'.\x08', '', unistr)
+            unistr = re.sub(r'\033\[\d*(;\d*)?\w', '>', unistr)
+            unistr = re.sub(r'.\x08', '>', unistr)
 
         # string is assumed to be already correctly encoded
         self._view.run_command("repl_insert_text", {"pos": self._output_end, "text": unistr})
